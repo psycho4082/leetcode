@@ -1,31 +1,32 @@
 class Solution {
 public:
-
-    string convert(string s, int numRows) {
-    
-    if(numRows <= 1) return s;
-
-    vector<string>v(numRows, ""); 
-
-    int j = 0, dir = -1;
-
-    for(int i = 0; i < s.length(); i++)
-    {
-
-        if(j == numRows - 1 || j == 0) dir *= (-1); 
-		 
-        v[j] += s[i];
-
-        if(dir == 1) j++;
-
-        else j--;
-    }
-
-    string res;
-
-    for(auto &it : v) res += it; 
-
-    return res;
-
+    string convert(string st, int r) {
+        int s = st.length();
+      if(r>s||r == 1){
+          return st;
+      }
+        vector<string>v(r);
+        int i = 0 ;int j = 0 ;
+        while(j<st.length()){
+        while(i<r && j<s){
+            v[i++] += st[j++];
+        }
+            
+        if(i == r)
+        {  i -=2;
+        }
+        while(i>=0 && j<s ){
+            v[i--] += st[j++];
+        }
+        if(i == -1){
+            i = 1;
+        }
+        
+        }
+      string ans = "";
+        for(int i = 0 ;i<v.size();i++){
+            ans+=v[i];
+        }
+        return ans;
     }
 };
