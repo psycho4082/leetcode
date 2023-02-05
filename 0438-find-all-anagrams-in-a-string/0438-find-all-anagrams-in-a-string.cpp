@@ -18,11 +18,11 @@ public:
         vector<int> ans;
         if(freq_p == window) ans.push_back(0);
         
-        for(int i=p_len;i<s_len;i++){
-            window[s[i-p_len] - 'a']--;
-            window[s[i] - 'a']++;
+        for(int i=1;i<=s_len - p_len;i++){
+            window[s[i-1] - 'a']--;
+            window[s[i+p_len-1] - 'a']++;
             
-            if(freq_p == window) ans.push_back(i-p_len+1);
+            if(freq_p == window) ans.push_back(i);
         }
         return ans;
     }
