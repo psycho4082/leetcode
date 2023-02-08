@@ -15,8 +15,9 @@ public:
             while (basket.size() > 2) {
                 basket[fruits[left]]--;
                 if (basket[fruits[left]] == 0)
-       //         {
+             {
                     basket.erase(fruits[left]);
+                }
                 left++;
          //       }
             }
